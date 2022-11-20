@@ -1,4 +1,5 @@
-/*HitPoints randomly generate hit points*/
+/*HitPoints randomly generate hit points
+Sentinel*/
 
 function getHitPoints (level, staminaMod)
 {
@@ -12,11 +13,11 @@ function getHitPoints (level, staminaMod)
             {
 
                 var hpEachLevel = 0;
-                hpEachLevel = Math.floor((Math.random() * 8) + 1) + staminaMod;
+                hpEachLevel = Math.floor((Math.random() * 12) + 1) + staminaMod;
 
-                if(hpEachLevel < 4)
+                if(hpEachLevel < 5)
                     {
-                        hpEachLevel = 4;
+                        hpEachLevel = 5;
                     }
 
                 hitPoints += hpEachLevel;

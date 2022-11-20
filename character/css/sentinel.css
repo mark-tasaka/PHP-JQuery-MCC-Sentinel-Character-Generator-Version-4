@@ -368,16 +368,16 @@ body{
 
 #artifactCheck{
     position:absolute;
-    top: 520px;
-    left: 810px;
+    top: 510px;
+    left: 660px;
     font-size: 1.2em;
 }
 
-#naturalHealingPerDay
+#artifactCheckBonusDie
 {
     position:absolute;
-    top: 520px;
-    left: 655px;
+    top: 510px;
+    left: 820px;
     font-size: 1.2em;
 }
 

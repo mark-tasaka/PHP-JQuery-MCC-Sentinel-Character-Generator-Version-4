@@ -259,15 +259,15 @@
             if(isset($_POST['theOptimizeAbilityScore']) && $_POST['theOptimizeAbilityScore'] == 1) 
             {
                 rsort($abilityScoreArray);
-
-                $strengthBase = $abilityScoreArray[3];
-                $agility = $abilityScoreArray[5];
-                $stamina = $abilityScoreArray[4];
-                $personality = $abilityScoreArray[0];
-                $intelligence = $abilityScoreArray[1];
-                $luck = $abilityScoreArray[2];
-
-                $optimizeAbilityScoreMessage = "<br/>Ability Scores optimized in the order of Per, Int, Luck, Str, Sta, Agi.";
+    
+                $strengthBase = $abilityScoreArray[0];
+                $agility = $abilityScoreArray[2];
+                $stamina = $abilityScoreArray[1];
+                $personality = $abilityScoreArray[4];
+                $intelligence = $abilityScoreArray[5];
+                $luck = $abilityScoreArray[3];
+    
+                $optimizeAbilityScoreMessage = "<br/>Ability Scores optimized in the order of Str, Sta, Agi, Luck, Per, Int.";
             }
             else
             {
@@ -432,12 +432,12 @@
 
     $artifactCheckBonusPlusInt = $artifactCheckBonus + $intelligenceMod;
 
-    $naturalHealingPerDay = getNaturalHealingPerDay($level);
+    $artifactCheckBonusDie = getArtifactCheckBonusDie($level);
 
 
     $profession = getProfession();
 
-    $attackBonus = getAttackBonus($level);
+   // $attackBonus = getAttackBonus($level);
 
     
     
@@ -496,9 +496,9 @@
        </span>
 
        
-       <span id="naturalHealingPerDay">
+       <span id="artifactCheckBonusDie">
            <?php
-                echo $naturalHealingPerDay;
+               echo $artifactCheckBonusDie;
            ?>
         </span>
 
@@ -826,8 +826,8 @@
             "addLanguages": "Nu-Speak" + bonusLanguages,
             "armourClass": <?php echo $totalAcDefense ?> + baseAC,
             "hp": getHitPoints (level, staminaMod) + hitPointAdjustPerLevel(birthAugur,  luckMod),
-			"melee": strengthMod + <?php echo $attackBonus ?> + meleeAdjust(birthAugur, luckMod),
-			"range": agilityMod +  <?php echo $attackBonus ?> + rangeAdjust(birthAugur, luckMod),
+			"melee": strengthMod + <?php echo $level ?> + meleeAdjust(birthAugur, luckMod),
+			"range": agilityMod +  <?php echo $level ?> + rangeAdjust(birthAugur, luckMod),
 			"meleeDamage": strengthMod + adjustMeleeDamage(birthAugur, luckMod),
             "rangeDamage": adjustRangeDamage(birthAugur, luckMod),
             "techLevel": maxTechLevel,
